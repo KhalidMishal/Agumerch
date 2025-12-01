@@ -1,15 +1,40 @@
 import 'package:flutter/material.dart';
 
-import '../data/mock_data.dart';
+import '../data/product_repository.dart';
 import '../models/cart_item.dart';
 import '../models/product.dart';
 
 class AppState extends ChangeNotifier {
   AppState() {
-    _products = List<Product>.unmodifiable(mockProducts);
+    _products = [];
+    loadProducts();
   }
 
-  late final List<Product> _products;
+  late List<Product> _products;
+  bool _isLoadingProducts = true;
+  String? _productLoadError;
+
+  Future<void> loadProducts() async {
+    _isLoadingProducts = true;
+    _productLoadError = null;
+    notifyListeners();
+
+    try {
+      final List<Product> recommended =
+          await ProductRepository.loadRecommended();
+      _products = recommended;
+      if (_products.isEmpty) {
+        _productLoadError = 'No products available.';
+      }
+    } catch (error) {
+      _products = <Product>[];
+      _productLoadError = 'Unable to load products.';
+    } finally {
+      _isLoadingProducts = false;
+      notifyListeners();
+    }
+  }
+
   final Map<String, CartItem> _cart = {};
   final Set<String> _favorites = <String>{};
   String _searchQuery = '';
@@ -18,10 +43,14 @@ class AppState extends ChangeNotifier {
   String? _userGender;
 
   List<Product> get products => _products;
+  bool get isLoadingProducts => _isLoadingProducts;
+  String? get productLoadError => _productLoadError;
   String get searchQuery => _searchQuery;
   String get activeCategory => _activeCategory;
   Set<String> get favorites => _favorites;
-  String get userName => (_userName == null || _userName!.trim().isEmpty) ? 'Guest' : _userName!.trim();
+  String get userName => (_userName == null || _userName!.trim().isEmpty)
+      ? 'Guest'
+      : _userName!.trim();
   String? get userGender => _userGender;
   bool get isProfileComplete => _userName != null && _userGender != null;
 
@@ -33,22 +62,26 @@ class AppState extends ChangeNotifier {
     return unique.toList(growable: false);
   }
 
-  List<Product> get featuredProducts => _products.take(3).toList(growable: false);
+  List<Product> get featuredProducts =>
+      _products.take(3).toList(growable: false);
 
   List<Product> get filteredProducts {
-    return _products.where((Product product) {
-      final bool matchesCategory =
-          _activeCategory == 'All' || product.category == _activeCategory;
-      final bool matchesQuery = product.name.toLowerCase().contains(
+    return _products
+        .where((Product product) {
+          final bool matchesCategory =
+              _activeCategory == 'All' || product.category == _activeCategory;
+          final bool matchesQuery = product.name.toLowerCase().contains(
             _searchQuery.trim().toLowerCase(),
           );
-      return matchesCategory && matchesQuery;
-    }).toList(growable: false);
+          return matchesCategory && matchesQuery;
+        })
+        .toList(growable: false);
   }
 
   List<CartItem> get cartItems => _cart.values.toList(growable: false);
 
-  double get cartSubtotal => _cart.values.fold(0, (double sum, CartItem item) => sum + item.lineTotal);
+  double get cartSubtotal =>
+      _cart.values.fold(0, (double sum, CartItem item) => sum + item.lineTotal);
 
   double get cartTaxEstimate => cartSubtotal * 0.07;
 
@@ -116,10 +149,15 @@ class AppState extends ChangeNotifier {
 }
 
 class AppStateScope extends InheritedNotifier<AppState> {
-  const AppStateScope({super.key, required super.notifier, required super.child});
+  const AppStateScope({
+    super.key,
+    required super.notifier,
+    required super.child,
+  });
 
   static AppState of(BuildContext context) {
-    final AppStateScope? scope = context.dependOnInheritedWidgetOfExactType<AppStateScope>();
+    final AppStateScope? scope = context
+        .dependOnInheritedWidgetOfExactType<AppStateScope>();
     assert(scope != null, 'AppStateScope not found in widget tree');
     return scope!.notifier!;
   }

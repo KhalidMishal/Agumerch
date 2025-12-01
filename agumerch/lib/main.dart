@@ -36,7 +36,7 @@ class _AGUMerchAppState extends State<AGUMerchApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       navigatorKey: _navigatorKey,
-      title: 'AGU Merch Prototype',
+  title: 'AGU Merch',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,

@@ -1,0 +1,32 @@
+[
+    {
+        "name": "AGU Classic Hoodie",
+        "photoUrl": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
+        "price": 48.0
+    },
+    {
+        "name": "Statement Tee",
+        "photoUrl": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
+        "price": 24.0
+    },
+    {
+        "name": "Hydro Sport Bottle",
+        "photoUrl": "https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=800&q=80",
+        "price": 18.0
+    },
+    {
+        "name": "Retro Baseball Cap",
+        "photoUrl": "https://images.unsplash.com/photo-1503342394128-c104d54dba01?auto=format&fit=crop&w=800&q=80",
+        "price": 28.0
+    },
+    {
+        "name": "Grid Notebook Set",
+        "photoUrl": "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80",
+        "price": 14.0
+    },
+    {
+        "name": "All-Weather Tech Jacket",
+        "photoUrl": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80",
+        "price": 110.0
+    }
+]

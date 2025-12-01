@@ -1,0 +1,35 @@
+[
+  {
+    "name": "AGU Classic Hoodie",
+    "photoUrl": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
+    "price": 48,
+    "category": "Apparel",
+    "description": "Premium cotton hoodie with embroidered AGU crest.",
+    "colors": ["Midnight Blue", "Charcoal"],
+    "sizes": ["S", "M", "L", "XL"],
+    "inventory": 32,
+    "badges": ["Top Seller"]
+  },
+  {
+    "name": "Statement Tee",
+    "photoUrl": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
+    "price": 24,
+    "category": "Apparel",
+    "description": "Soft-touch shirt with AGU typography.",
+    "colors": ["Arctic White", "Sunset Coral"],
+    "sizes": ["M", "L", "XL"],
+    "inventory": 60,
+    "badges": ["New"]
+  },
+  {
+    "name": "Hydro Sport Bottle",
+    "photoUrl": "https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=800&q=80",
+    "price": 18,
+    "category": "Accessories",
+    "description": "Insulated, laser-etched crest bottle.",
+    "colors": ["Matte Black"],
+    "sizes": ["600ml"],
+    "inventory": 75,
+    "badges": ["Eco"]
+  }
+]
