@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'screens/welcome_screen.dart';
 import 'models/product.dart';
 import 'screens/cart_screen.dart';
 import 'screens/catalog_screen.dart';
@@ -24,6 +24,8 @@ class _AGUMerchAppState extends State<AGUMerchApp> {
   final AppState _state = AppState();
   final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
 
+  bool _signedInAsGuest = false; // <-- new: control showing welcome screen
+
   void _openProduct(Product product) {
     _navigatorKey.currentState?.push(
       MaterialPageRoute<void>(
@@ -36,7 +38,7 @@ class _AGUMerchAppState extends State<AGUMerchApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       navigatorKey: _navigatorKey,
-  title: 'AGU Merch',
+      title: 'AGU Merch',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
@@ -49,9 +51,22 @@ class _AGUMerchAppState extends State<AGUMerchApp> {
           child: child ?? const SizedBox.shrink(),
         );
       },
-      home: _MainShell(
-        onProductSelected: _openProduct,
-      ),
+      // show welcome screen until user taps "Sign in as guest"
+      home: _signedInAsGuest
+          ? _MainShell(
+              onProductSelected: _openProduct,
+            )
+          : WelcomeScreen(
+              onSignInAsGuest: () {
+                setState(() => _signedInAsGuest = true);
+              },
+              onSignInWithGoogle: () {
+                // non-functional placeholder
+              },
+              onRegister: () {
+                // non-functional placeholder
+              },
+            ),
     );
   }
 }
