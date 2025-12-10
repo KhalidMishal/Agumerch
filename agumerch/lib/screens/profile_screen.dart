@@ -46,7 +46,7 @@ class ProfileScreen extends StatelessWidget {
                     const SizedBox(height: 4),
                     Text(
                       state.userGender == null
-                          ? 'Tell us a little about yourself'
+                          ? 'Complete your profile?'
                           : 'Gender: ${state.userGender}',
                       style: Theme.of(context).textTheme.bodySmall,
                       maxLines: 2,

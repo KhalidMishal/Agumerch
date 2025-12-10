@@ -4,7 +4,7 @@ final List<Product> mockProducts = [
   Product(
     id: 'hoodie-agu-classic',
     name: 'AGU Classic Hoodie',
-    price: 48.0,
+    price: 925.0,
     category: 'Apparel',
     imageUrl:
         'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80',
@@ -18,7 +18,7 @@ final List<Product> mockProducts = [
   Product(
     id: 'tee-agu-statement',
     name: 'Statement Tee',
-    price: 24.0,
+    price: 375.0,
     category: 'Apparel',
     imageUrl:
         'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80',
@@ -32,7 +32,7 @@ final List<Product> mockProducts = [
   Product(
     id: 'bottle-agu-hydro',
     name: 'Hydro Sport Bottle',
-    price: 18.0,
+    price: 275.0,
     category: 'Accessories',
     imageUrl:
         'https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=800&q=80',
@@ -46,7 +46,7 @@ final List<Product> mockProducts = [
   Product(
     id: 'cap-agu-retro',
     name: 'Retro Baseball Cap',
-    price: 28.0,
+    price: 325.0,
     category: 'Accessories',
     imageUrl:
         'https://images.unsplash.com/photo-1503342394128-c104d54dba01?auto=format&fit=crop&w=800&q=80',
@@ -60,7 +60,7 @@ final List<Product> mockProducts = [
   Product(
     id: 'notebook-agu-grid',
     name: 'Grid Notebook Set',
-    price: 14.0,
+    price: 190.0,
     category: 'Stationery',
     imageUrl:
         'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80',
@@ -74,7 +74,7 @@ final List<Product> mockProducts = [
   Product(
     id: 'jacket-agu-tech',
     name: 'All-Weather Tech Jacket',
-    price: 110.0,
+    price: 1975.0,
     category: 'Apparel',
     imageUrl:
         'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80',
