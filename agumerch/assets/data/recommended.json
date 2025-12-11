@@ -2,56 +2,94 @@
   {
     "name": "AGU Espresso Set",
     "photoUrl": "assets/images/coffee_cups.png",
-    "price": 35,
+    "price": 475,
     "category": "Home",
     "description": "Elegant white ceramic espresso cups with matching saucers, featuring the signature AGU logo in red.",
-    "colors": ["White"],
-    "sizes": ["Standard"],
+    "colors": [
+      "White"
+    ],
+    "sizes": [
+      "Standard"
+    ],
     "inventory": 40,
-    "badges": ["Premium"]
+    "badges": [
+      "Premium"
+    ]
   },
   {
     "name": "Varsity Cap Collection",
     "photoUrl": "assets/images/caps.png",
-    "price": 28,
+    "price": 290,
     "category": "Apparel",
     "description": "Classic baseball caps with embroidered AGU logo. Adjustable strap for perfect fit.",
-    "colors": ["Black", "Red", "White"],
-    "sizes": ["One Size"],
+    "colors": [
+      "Black",
+      "Red",
+      "White"
+    ],
+    "sizes": [
+      "One Size"
+    ],
     "inventory": 100,
-    "badges": ["Bestseller"]
+    "badges": [
+      "Bestseller"
+    ]
   },
   {
     "name": "Thermal Steel Bottle",
     "photoUrl": "assets/images/metal_bottles.png",
-    "price": 25,
+    "price": 360,
     "category": "Accessories",
     "description": "Double-walled insulated stainless steel bottle to keep your drinks hot or cold for hours.",
-    "colors": ["Metallic Red", "Silver", "Matte Black"],
-    "sizes": ["500ml"],
+    "colors": [
+      "Metallic Red",
+      "Silver",
+      "Matte Black"
+    ],
+    "sizes": [
+      "500ml"
+    ],
     "inventory": 85,
-    "badges": ["Eco-Friendly"]
+    "badges": [
+      "Eco-Friendly"
+    ]
   },
   {
     "name": "Soft-Touch Glass Bottle",
     "photoUrl": "assets/images/glass_bottles.png",
-    "price": 22,
+    "price": 310,
     "category": "Accessories",
     "description": "Glass water bottle with a protective soft-touch sleeve. Stylish and sustainable.",
-    "colors": ["Pastel Pink", "Mint Green", "White", "Sky Blue"],
-    "sizes": ["450ml"],
+    "colors": [
+      "Pastel Pink",
+      "Mint Green",
+      "White",
+      "Sky Blue"
+    ],
+    "sizes": [
+      "450ml"
+    ],
     "inventory": 60,
-    "badges": ["New"]
+    "badges": [
+      "New"
+    ]
   },
   {
     "name": "Classic Ceramic Mug",
     "photoUrl": "assets/images/mugs.png",
-    "price": 15,
+    "price": 210,
     "category": "Home",
     "description": "Your daily coffee companion. Durable ceramic mug with a comfortable handle.",
-    "colors": ["Glossy Black", "White/Red Handle"],
-    "sizes": ["350ml"],
+    "colors": [
+      "Glossy Black",
+      "White/Red Handle"
+    ],
+    "sizes": [
+      "350ml"
+    ],
     "inventory": 120,
-    "badges": ["Classic"]
+    "badges": [
+      "Classic"
+    ]
   }
 ]

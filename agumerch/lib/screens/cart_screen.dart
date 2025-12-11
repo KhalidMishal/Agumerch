@@ -73,16 +73,31 @@ class _CartTile extends StatelessWidget {
             children: <Widget>[
               ClipRRect(
                 borderRadius: BorderRadius.circular(16),
-                child: Image.network(item.product.imageUrl, width: 90, height: 90, fit: BoxFit.cover),
+                child: item.product.imageUrl.startsWith('http')
+                    ? Image.network(
+                        item.product.imageUrl,
+                        width: 90,
+                        height: 90,
+                        fit: BoxFit.cover,
+                      )
+                    : Image.asset(
+                        item.product.imageUrl,
+                        width: 90,
+                        height: 90,
+                        fit: BoxFit.cover,
+                      ),
               ),
               const SizedBox(width: 16),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(item.product.name, style: const TextStyle(fontWeight: FontWeight.w600)),
+                    Text(
+                      item.product.name,
+                      style: const TextStyle(fontWeight: FontWeight.w600),
+                    ),
                     const SizedBox(height: 4),
-                    Text('\$${item.product.price.toStringAsFixed(2)}'),
+                    Text('₺${item.product.price.toStringAsFixed(2)}'),
                     if (item.color != null || item.size != null)
                       Text(
                         [item.color, item.size].whereType<String>().join(' • '),
@@ -106,8 +121,11 @@ class _CartTile extends StatelessWidget {
                 onChange: (int value) => state.updateCartQuantity(item, value),
               ),
               Text(
-                '\$${item.lineTotal.toStringAsFixed(2)}',
-                style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                '₺${item.lineTotal.toStringAsFixed(2)}',
+                style: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                ),
               ),
             ],
           ),
@@ -153,7 +171,9 @@ class _SummaryPanel extends StatelessWidget {
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surfaceContainer,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(28)),
-        border: Border(top: BorderSide(color: Theme.of(context).colorScheme.outlineVariant)),
+        border: Border(
+          top: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
+        ),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -168,7 +188,9 @@ class _SummaryPanel extends StatelessWidget {
             onPressed: () => _simulateCheckout(context),
             icon: const Icon(Icons.lock_open_outlined),
             label: const Text('Simulate checkout'),
-            style: FilledButton.styleFrom(minimumSize: const Size.fromHeight(54)),
+            style: FilledButton.styleFrom(
+              minimumSize: const Size.fromHeight(54),
+            ),
           ),
         ],
       ),
@@ -185,15 +207,22 @@ class _SummaryPanel extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text('Total: \$${state.cartTotal.toStringAsFixed(2)}'),
+              Text('Total: ₺${state.cartTotal.toStringAsFixed(2)}'),
               const SizedBox(height: 12),
-              const Text('This flow demonstrates the steps your real checkout would follow:'),
+              const Text(
+                'This flow demonstrates the steps your real checkout would follow:',
+              ),
               const SizedBox(height: 12),
-              const Text('1. Confirm shipping details\n2. Apply student discounts\n3. Complete payment securely'),
+              const Text(
+                '1. Confirm shipping details\n2. Apply student discounts\n3. Complete payment securely',
+              ),
             ],
           ),
           actions: <Widget>[
-            TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('Close')),
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('Close'),
+            ),
             FilledButton(
               onPressed: () {
                 state.clearCart();
@@ -209,7 +238,11 @@ class _SummaryPanel extends StatelessWidget {
 }
 
 class _SummaryRow extends StatelessWidget {
-  const _SummaryRow({required this.label, required this.value, this.emphasize = false});
+  const _SummaryRow({
+    required this.label,
+    required this.value,
+    this.emphasize = false,
+  });
 
   final String label;
   final double value;
@@ -218,7 +251,9 @@ class _SummaryRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextStyle? style = emphasize
-        ? Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700)
+        ? Theme.of(
+            context,
+          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700)
         : Theme.of(context).textTheme.bodyMedium;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
@@ -226,7 +261,7 @@ class _SummaryRow extends StatelessWidget {
         children: <Widget>[
           Text(label),
           const Spacer(),
-          Text('\$${value.toStringAsFixed(2)}', style: style),
+          Text('₺${value.toStringAsFixed(2)}', style: style),
         ],
       ),
     );

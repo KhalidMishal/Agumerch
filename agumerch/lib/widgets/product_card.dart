@@ -44,9 +44,13 @@ class ProductCard extends StatelessWidget {
                   right: 8,
                   child: IconButton(
                     onPressed: onFavoriteToggle,
-                    icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
+                    icon: Icon(
+                      isFavorite ? Icons.favorite : Icons.favorite_border,
+                    ),
                     color: isFavorite ? Colors.redAccent : Colors.white,
-                    style: IconButton.styleFrom(backgroundColor: Colors.black45),
+                    style: IconButton.styleFrom(
+                      backgroundColor: Colors.black45,
+                    ),
                   ),
                 ),
                 if (product.badges.isNotEmpty)
@@ -59,7 +63,10 @@ class ProductCard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 4,
+                        ),
                         child: Text(
                           product.badges.first,
                           style: const TextStyle(
@@ -87,11 +94,10 @@ class ProductCard extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   Text(
-                    '\$${product.price.toStringAsFixed(2)}',
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleMedium
-                        ?.copyWith(fontWeight: FontWeight.bold),
+                    '₺${product.price.toStringAsFixed(2)}',
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const Spacer(),
                   const Icon(Icons.chevron_right, size: 20),
