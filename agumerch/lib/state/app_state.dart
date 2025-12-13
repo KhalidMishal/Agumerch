@@ -41,6 +41,9 @@ class AppState extends ChangeNotifier {
   String _activeCategory = 'All';
   String? _userName;
   String? _userGender;
+  bool _notifyCompletedTransactions = true;
+  bool _notifyAvailableDiscounts = true;
+  bool _notifyNewProducts = true;
 
   List<Product> get products => _products;
   bool get isLoadingProducts => _isLoadingProducts;
@@ -53,6 +56,25 @@ class AppState extends ChangeNotifier {
       : _userName!.trim();
   String? get userGender => _userGender;
   bool get isProfileComplete => _userName != null && _userGender != null;
+
+  bool get notifyCompletedTransactions => _notifyCompletedTransactions;
+  bool get notifyAvailableDiscounts => _notifyAvailableDiscounts;
+  bool get notifyNewProducts => _notifyNewProducts;
+
+  void setNotifyCompletedTransactions(bool value) {
+    _notifyCompletedTransactions = value;
+    notifyListeners();
+  }
+
+  void setNotifyAvailableDiscounts(bool value) {
+    _notifyAvailableDiscounts = value;
+    notifyListeners();
+  }
+
+  void setNotifyNewProducts(bool value) {
+    _notifyNewProducts = value;
+    notifyListeners();
+  }
 
   List<String> get categories {
     final Set<String> unique = {'All'};

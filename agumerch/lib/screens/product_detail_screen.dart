@@ -449,7 +449,7 @@ class _ProductInfoPanel extends StatelessWidget {
             ),
             const SizedBox(height: 4),
             Text(
-              '${product.category} • \$${product.price.toStringAsFixed(2)}',
+              '₺${product.price.toStringAsFixed(2)} • ${product.category}',
               style: const TextStyle(
                 color: Colors.white70,
                 fontWeight: FontWeight.w600,
