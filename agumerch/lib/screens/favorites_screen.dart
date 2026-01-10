@@ -22,7 +22,7 @@ class FavoritesScreen extends StatelessWidget {
           icon: Icons.favorite_border,
           title: 'Favorites feel empty',
           message:
-              'Tap the heart icon on products to build your personalized AGU wishlist.',
+              'Tap the heart icon on products to build your personalized Rezon wishlist.',
         ),
       );
     }

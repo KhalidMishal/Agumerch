@@ -42,7 +42,7 @@ class ProductRepository {
       price: price.toDouble(),
       category: json['category'] as String? ?? 'Recommended',
       imageUrl: photoUrl,
-      description: json['description'] as String? ?? 'Featured AGU merch pick.',
+      description: json['description'] as String? ?? 'Featured Rezon pick.',
       colors: _coerceStringList(json['colors']) ?? const <String>['Standard'],
       sizes: _coerceStringList(json['sizes']) ?? const <String>['One Size'],
       inventory: (json['inventory'] as num?)?.toInt() ?? 25,

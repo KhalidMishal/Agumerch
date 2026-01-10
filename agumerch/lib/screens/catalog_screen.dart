@@ -17,8 +17,29 @@ class CatalogScreen extends StatefulWidget {
 
 class _CatalogScreenState extends State<CatalogScreen> {
   String _sort = 'Featured';
+  late final TextEditingController _searchController;
 
   @override
+  void initState() {
+    super.initState();
+    _searchController = TextEditingController();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // keep controller text in sync with AppState (e.g., when restored)
+    final AppState state = AppStateScope.of(context);
+    if (_searchController.text != state.searchQuery) {
+      _searchController.text = state.searchQuery;
+    }
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
   Widget build(BuildContext context) {
     final AppState state = AppStateScope.of(context);
     final List<Product> products = _sorted(state.filteredProducts);
@@ -52,7 +73,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
               children: <Widget>[
                 Expanded(
                   child: TextFormField(
-                    initialValue: state.searchQuery,
+                    controller: _searchController,
                     onChanged: state.updateSearchQuery,
                     decoration: InputDecoration(
                       prefixIcon: const Icon(Icons.search),

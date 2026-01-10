@@ -40,7 +40,7 @@ class WelcomeScreen extends StatelessWidget {
               const SizedBox(height: 24),
               // use theme text styles so colors adapt in dark mode
               Text(
-                'Welcome to AGÜ Store',
+                'Welcome to Rezon',
                 style: textTheme.titleLarge?.copyWith(
                   fontSize: 22,
                   fontWeight: FontWeight.w700,
@@ -48,7 +48,7 @@ class WelcomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               Text(
-                'Browse and buy official AGÜ merch brought to you by students.',
+                'Browse and buy official Rezon merchandise brought to you by students.',
                 textAlign: TextAlign.center,
                 style: textTheme.bodyMedium,
               ),

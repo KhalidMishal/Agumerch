@@ -44,20 +44,22 @@ class _AGUMerchAppState extends State<AGUMerchApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       navigatorKey: _navigatorKey,
-      title: 'AGU Merch',
+      title: 'Rezon',
       debugShowCheckedModeBanner: false,
       themeMode: _themeMode,
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFD32F2F)),
-        scaffoldBackgroundColor: const Color(0xFFF5F6F8),
+        // neutral grey seed for a minimalist grey/black/white brand
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF6E6E6E)),
+        scaffoldBackgroundColor: const Color(0xFFF7F7F7),
       ),
       darkTheme: ThemeData.dark().copyWith(
+        // use the same grey seed but generate a dark color scheme
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFFD32F2F),
+          seedColor: const Color(0xFF6E6E6E),
           brightness: Brightness.dark,
         ),
-        scaffoldBackgroundColor: const Color(0xFF0B0B0D),
+        scaffoldBackgroundColor: const Color(0xFF0A0A0A),
       ),
       builder: (BuildContext context, Widget? child) {
         return AppStateScope(

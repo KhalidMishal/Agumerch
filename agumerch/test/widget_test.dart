@@ -14,7 +14,7 @@ void main() {
     await tester.pumpWidget(const AGUMerchApp());
     await tester.pumpAndSettle();
 
-    expect(find.text('AGU Merch Hub'), findsOneWidget);
+    expect(find.text('Rezon Merch Hub'), findsOneWidget);
     expect(find.text('Browse collections'), findsOneWidget);
   });
 }

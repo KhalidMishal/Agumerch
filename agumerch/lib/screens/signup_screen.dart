@@ -58,7 +58,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Text('Let us know who you are', style: theme.textTheme.titleLarge),
               const SizedBox(height: 8),
               Text(
-                "We'll use this information to personalize your AGU Merch experience.",
+                "We'll use this information to personalize your Rezon experience.",
                 style: theme.textTheme.bodyMedium?.copyWith(color: theme.hintColor),
               ),
               const SizedBox(height: 32),

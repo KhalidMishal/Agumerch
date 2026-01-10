@@ -19,7 +19,7 @@ class CartScreen extends StatelessWidget {
         child: EmptyState(
           icon: Icons.shopping_bag_outlined,
           title: 'Your cart is ready for merch',
-          message: 'Add AGU gear to simulate the checkout experience.',
+          message: 'Add Rezon merchandise to simulate the checkout experience.',
           action: FilledButton.icon(
             onPressed: onExplore,
             icon: const Icon(Icons.explore_outlined),

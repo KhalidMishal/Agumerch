@@ -44,23 +44,28 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 12),
             SizedBox(
               height: 320,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                itemCount: state.featuredProducts.length,
-                separatorBuilder: (_, __) => const SizedBox(width: 16),
-                itemBuilder: (BuildContext context, int index) {
-                  final Product product = state.featuredProducts[index];
-                  return SizedBox(
-                    width: 200,
-                    child: ProductCard(
-                      product: product,
-                      isFavorite: state.isFavorite(product),
-                      onFavoriteToggle: () => state.toggleFavorite(product),
-                      onTap: () => onProductSelected(product),
-                    ),
-                  );
-                },
-              ),
+              child: Builder(builder: (BuildContext ctx) {
+                // Reuse the same filtering logic from AppState so featured
+                // results respect the active search query and category.
+                final List<Product> featured = state.filteredProducts.take(3).toList(growable: false);
+                return ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: featured.length,
+                  separatorBuilder: (_, __) => const SizedBox(width: 16),
+                  itemBuilder: (BuildContext context, int index) {
+                    final Product product = featured[index];
+                    return SizedBox(
+                      width: 200,
+                      child: ProductCard(
+                        product: product,
+                        isFavorite: state.isFavorite(product),
+                        onFavoriteToggle: () => state.toggleFavorite(product),
+                        onTap: () => onProductSelected(product),
+                      ),
+                    );
+                  },
+                );
+              }),
             ),
             const SizedBox(height: 24),
             SectionHeader(title: 'Popular Categories'),
@@ -97,7 +102,7 @@ class _HeroBanner extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            'AGU Merch Hub',
+            'Rezon Merch Hub',
             style: Theme.of(context)
                 .textTheme
                 .headlineMedium
@@ -139,7 +144,7 @@ class _SearchField extends StatelessWidget {
       onChanged: onChanged,
       decoration: InputDecoration(
         prefixIcon: const Icon(Icons.search),
-        hintText: 'Search AGU merchandise',
+        hintText: 'Search Rezon merchandise',
         filled: true,
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16), borderSide: BorderSide.none),
       ),
